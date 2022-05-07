@@ -1,1 +1,17 @@
-
+torch
+torchtext
+nltk
+pandas
+matplotlib
+plotly
+seaborn
+sklearn
+flask_ngrok
+flask
+import torch
+re
+unicodedata
+string
+py-cord
+dotenv
+requests
