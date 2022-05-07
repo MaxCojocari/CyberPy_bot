@@ -14,7 +14,7 @@ load_dotenv()
 TOKEN = os.getenv('TOKEN')
 
 # change the generated URL here
-URL = "http://9865-34-80-27-204.ngrok.io"
+URL = "http://9e7b-35-199-179-209.ngrok.io"
 
 
 class PrimaryButton(Button):
@@ -31,37 +31,32 @@ class DangerButton(Button):
     def __init__(self, label):
         super().__init__(label=label, style=discord.ButtonStyle.danger)
 
-cyb_count, spam_count, cyb_spam_count = 0, 0, 0
+cyb_count, spam_count = 0, 0
 
 @bot.event
 async def on_message(message):
     global cyb_count, spam_count, cyb_spam_count
-    if message.author == bot.user:
-        return
+    
+    if message.author != bot.user:
 
-    if message.content.startswith("$test"):
-        
         data_json = {"text": message.content}
         prediction = requests.get(URL, json=data_json).json()
-
+        
         is_cyberbullying = int(prediction["cyberbullying"])
-        # if prediction["cyberbullying"]==1 and prediction["cyberbull_type"]['ethnicity']<0.5:
-        #     is_cyberbullying = 0
         is_spam = int(prediction["spam"])
 
         button1, button2, button3 = SuccessButton("Yes"), DangerButton("No"), PrimaryButton("View Details")
         view = View()
 
-        if is_cyberbullying and is_spam:
-            cyb_spam_count += 1
-            view.add_item(button1)
-            view.add_item(button2)
-            view.add_item(button3)
+        if is_spam:  
+            spam_count += 1
             await message.channel.send(
-                f"{message.author.mention} This is both a spam and cyberbullying message!!!" + 
-                f"\nI recommend you to delete this upsetting content. Continue deleting?", 
-                reference=message, 
-                view=view)
+                f"{message.author.mention} Please, don't spam the channel!!!", 
+                reference=message
+            )
+            await message.channel.send("The malicious message was successfully deleted!", reference=message)
+            await message.delete()
+            return
         
         elif is_cyberbullying:
             cyb_count += 1
@@ -74,15 +69,9 @@ async def on_message(message):
                 reference=message, 
                 view=view
             )
-        
-        elif is_spam:  
-            spam_count += 1
-            await message.channel.send(
-                f"{message.author.mention} Please, don't spam the channel!!!", 
-                reference=message
-            )
 
         else:
+            await message.channel.send(prediction["chatbot_response"])
             return
 
 
@@ -119,17 +108,12 @@ async def on_message(message):
             
         button1.callback, button2.callback, button3.callback = button1_callback, button2_callback, button3_callback
 
-
-        if is_spam and not is_cyberbullying:
-            await message.channel.send("The malicious message was successfully deleted!", reference=message)
-            await message.delete()
-            return
         
         channel = bot.get_channel(971155287694274650)
-        if cyb_count + spam_count + cyb_spam_count == 3:
+        if cyb_count + spam_count == 3:
             await channel.send(f"{message.author.mention} has already sent 3 malicious messages:"+
-            f"\n{cyb_count} cyberbullying\n{spam_count} spam\n {cyb_spam_count} both cyberbullying and spam")
-            cyb_count, spam_count, cyb_spam_count = 0, 0, 0
+            f"\n{cyb_count} cyberbullying\n{spam_count} spam")
+            cyb_count, spam_count = 0, 0
 
 
 @bot.event
