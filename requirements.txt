@@ -8,10 +8,7 @@ seaborn
 sklearn
 flask_ngrok
 flask
-import torch
-re
 unicodedata
-string
 py-cord
 dotenv
 requests
