@@ -1,4 +1,4 @@
-# CyberPy Bot©
+# CyberPy Bot ©
 
 Cyberbullying and spamming have reached all-time highs, thanks to the emergence of social media and the Covid-19 epidemic. We can tackle this phenomenon by developing technologies that automatically detect potentially damaging messages and dissect hateful tendencies. 
 
