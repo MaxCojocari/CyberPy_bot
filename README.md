@@ -28,7 +28,7 @@ The main features of chatbot are:
 
 The project is structured into 3 directories: ```training```, ```models``` and ```app```.
 
-The ```training``` directory contains Google Colab notebooks that were used for training seq2seq models.
+The ```training``` directory contains Google Colab notebooks used for training seq2seq models.
 
 The ```models``` directory includes the following pre-trained models:
 
@@ -38,11 +38,11 @@ The ```models``` directory includes the following pre-trained models:
 The cluster of pipelines ```chatbot_checkpoint.tar``` for natural conversation issues is missing here due to its huge size, but it can be generated 
 in this way:
 
-1. Copy ```chatbot.ipynb``` and in the last cell change the path 'drive/MyDrive/NLPC2022' to your local machine path, which should look like '.../models';
+1. Copy ```chatbot.ipynb``` and in the last cell change the path 'drive/MyDrive/NLPC2022' to your local path, which should look like '.../models';
 
 ![image](https://user-images.githubusercontent.com/92053176/169882027-8e000088-b9a9-448f-a3f9-b8e599ea3d3f.png)
 
-2. Run the notebook using Google Colab or Jupyter Notebook.
+2. Run the notebook using Google Colab or Jupyter Notebook and make sure that all cells were run.
 
 The ```app``` directory includes these modules:
 
@@ -69,6 +69,8 @@ In order to start the chatbot, run ```launch.ipynb```, copy the output URL which
 ```
 python main.py
 ```
+
+## Datasets
 
 The data used when training the **nlp** models:
 
