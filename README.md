@@ -56,7 +56,7 @@ To run this project, you first should install the following dependencies by runn
 $ pip install -r requirements.txt
 ```
 
-In order to be able to use chatbot in the Discord environment, you should create an account for it and invite in whichever server(s) you want. A detailed [guide](https://discordpy.readthedocs.io/en/stable/discord.html) can help you! During the steps, make a copy of the generated token.
+In order to be able to use chatbot in the Discord environment, you should create an account for it and invite in whichever server(s) you want. A detailed [guide](https://discordpy.readthedocs.io/en/stable/discord.html) can help you! While creating the account, make a copy of the generated token and keep it in secret.
 
 Next, in the ```app``` folder create a .env file and insert the bot's token in this format:
 
