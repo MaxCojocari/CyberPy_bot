@@ -16,12 +16,12 @@ The main features of chatbot are:
 
 - It filters all messages that are incoming and detects the malicious ones, classifing them into cyberbullying or spamming;
 - It detects the type of cyberbullying;
-- It warns the user who sent a cyberbullying message through an interactive interface: 
+- It warns the user who sent a cyberbullying message through a user-friendly interface: 
 
 ![image](https://user-images.githubusercontent.com/92053176/168859501-5d116187-8e50-4607-9fea-0091bd9771a2.png)
 
 - It automatically deletes the spam messages;
-- It counts the number of damaging messages and reports to the admins (through a private channel) the user(s) who has exceeded the number of malicious messages;
+- It counts the number of damaging messages and reports to the admins (through a private channel) the last user(s) who has exceeded the number of malicious messages;
 - It can provide a natural conversation with the user.
 
 ## Installation and usage
